@@ -11,13 +11,20 @@ import {MatTooltipModule} from "@angular/material/tooltip";
 import {RouterLink, RouterModule} from "@angular/router";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {SharedRoutingModule} from "./routing/shared-routing.module";
+import { AnimatedNavbarDirective } from './directives/animated-navbar.directive';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {ReactiveFormsModule} from "@angular/forms";
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 
 
 @NgModule({
   declarations: [
     NavbarComponent,
-    SignInComponent
+    SignInComponent,
+    AnimatedNavbarDirective
   ],
   exports: [
     NavbarComponent
@@ -35,6 +42,11 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
     MatDialogModule,
     RouterModule,
     MatSlideToggleModule,
+    SharedRoutingModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    FontAwesomeModule,
   ]
 })
 export class SharedModule { }
