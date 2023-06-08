@@ -1,0 +1,52 @@
+.profile-toolbar {
+  background-color: lavender;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+mat-icon {
+  color: indigo;
+}
+
+.profile-description {
+  font-weight: bold;
+  color: indigo;
+  cursor: pointer;
+  &:hover {
+    color: #ffcc00;
+  }
+}
+
+.logo-icon {
+  margin-right: 5px;
+}
+
+.search-input {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+mat-icon .mat-icon-button {
+  color: indigo;
+}
+
+.search-button {
+  margin-left: 10px;
+}
+
+.separator {
+  margin-bottom: .5px;
+}
+
+@media (max-width: 600px) {
+  .search-input {
+    width: 100%;
+  }
+}

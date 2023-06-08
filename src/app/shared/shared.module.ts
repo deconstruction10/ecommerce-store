@@ -12,11 +12,15 @@ import {RouterLink, RouterModule} from "@angular/router";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {SharedRoutingModule} from "./routing/shared-routing.module";
-import { AnimatedNavbarDirective } from './directives/animated-navbar.directive';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { ErrorHandlingDirective } from './directives/error-handling.directive';
+import {HttpClientModule} from "@angular/common/http";
 
 
 
@@ -24,7 +28,9 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
   declarations: [
     NavbarComponent,
     SignInComponent,
-    AnimatedNavbarDirective
+    SignUpComponent,
+    ResetPasswordComponent,
+    ErrorHandlingDirective,
   ],
   exports: [
     NavbarComponent
@@ -47,6 +53,8 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
     MatInputModule,
     ReactiveFormsModule,
     FontAwesomeModule,
+    MatSnackBarModule,
+    HttpClientModule,
   ]
 })
 export class SharedModule { }

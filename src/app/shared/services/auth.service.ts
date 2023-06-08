@@ -1,29 +1,45 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {AngularFireAuth} from "@angular/fire/compat/auth";
-import {BehaviorSubject, Observable} from "rxjs";
-import { User } from 'firebase/auth';
 import firebase from 'firebase/compat/app';
-import auth = firebase.auth;
+import {Observable} from "rxjs";
+import * as auth from 'firebase/auth';
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private auth: AngularFireAuth) {
+  constructor(private afAuth: AngularFireAuth, private readonly snackBar: MatSnackBar) {
   }
-  signIn(email: string, password: string):  Promise<firebase.auth.UserCredential> {
-    return this.auth.signInWithEmailAndPassword(email, password);
+  register(email: string, password: string): Promise<firebase.auth.UserCredential> {
+    return this.afAuth.createUserWithEmailAndPassword(email, password);
+  };
+  login(email: string, password: string): Promise<firebase.auth.UserCredential> {
+    return this.afAuth.signInWithEmailAndPassword(email, password);
+  };
+  logout(): Promise<void> {
+    return this.afAuth.signOut();
+  };
+
+  resetPassword(email: string): Promise<void> {
+    return this.afAuth.sendPasswordResetEmail(email)
+      .then(() => {
+        this.snackBar.open('Password reset email sent. Please check your inbox.', 'OK', { duration: 5000 });
+      })
+      .catch(() => {
+        this.snackBar.open('Failed to send password reset email. Please try again later.', 'OK', { duration: 5000 });
+      });
   }
 
-  signInWithGoogle() {
-    return this.auth.signInWithPopup(new auth.GoogleAuthProvider());
-  }
+  loggedIn(): Observable<boolean> {
+    return new Observable<boolean>(subscriber => {
+      const unsubscribe = this.afAuth.onAuthStateChanged(
+        user => {
+        const isLoggedIn = !!user;
+        subscriber.next(isLoggedIn);
+      });
 
-  signInWithYahoo(): Promise<firebase.auth.UserCredential> {
-    return this.auth.signInWithPopup(new auth.OAuthProvider('yahoo.com'));
-  }
-
-  signInWithMicrosoft(): Promise<firebase.auth.UserCredential> {
-    return this.auth.signInWithPopup(new auth.OAuthProvider('microsoft.com'));
-  }
+      return async () => (await unsubscribe)();
+    });
+  };
 }

@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+<div class="separator"></div>
+<mat-toolbar class="profile-toolbar" color="primary">
+  <span class="profile-description">
+    Profile
+  </span>
+  <span class="spacer"></span>
+  <mat-form-field appearance="outline" class="search-input">
+    <mat-icon matPrefix>search</mat-icon>
+    <input matInput placeholder="Search" type="search">
+    <button mat-icon-button matSuffix>
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <button mat-icon-button>
+    <mat-icon>shopping_cart</mat-icon>
+  </button>
+  <button mat-icon-button [matMenuTriggerFor]="dropdownMenu">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #dropdownMenu="matMenu" class="dropdown-menu">
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+
+
+
+
+
+

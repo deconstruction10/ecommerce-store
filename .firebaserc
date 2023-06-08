@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "portfolio-f615d": {
+      "hosting": {
+        "ecommerce-store": [
+          "portfolio-f615d"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "portfolio-f615d"
+  }
+}
