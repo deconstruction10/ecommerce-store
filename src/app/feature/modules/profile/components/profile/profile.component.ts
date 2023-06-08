@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {AuthService} from "../../../../../shared/services/auth.service";
 import {Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
-import {SignInComponent} from "../../../../../shared/components/sign-in/sign-in.component";
+import {SignInComponent} from "../../../../../shared/component/sign-in/sign-in.component";
 
 @Component({
   selector: 'app-profile',
