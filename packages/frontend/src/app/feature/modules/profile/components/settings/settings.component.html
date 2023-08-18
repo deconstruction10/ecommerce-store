@@ -1,0 +1,105 @@
+<div class="profile-container">
+  <nav class="cabinet-navigation">
+    <div class="cabinet-user">
+      <a routerLink="personal-information"
+         class="cabinet-navigation__link cabinet-navigation__link_type_user">
+        <div class="cabinet-navigation__icon cabinet-navigation__icon_type_avatar">
+          <mat-icon>account_circle</mat-icon>
+        </div>
+        <div class="cabinet-user__body">
+          <p class="cabinet-user__email" *ngIf="email">
+            {{email}}
+            Підтвердіть вашу електронну пошту
+          </p>
+        </div>
+      </a>
+    </div>
+
+    <ul class="cabinet-navigation__list">
+      <li class="cabinet-navigation__item">
+        <a routerLinkActive="cabinet-navigation__link_state_active"
+           routerLink="orders"
+           class="cabinet-navigation__link">
+          <span class="cabinet-navigation__icon">
+            <mat-icon>shopping_cart</mat-icon>
+          </span>
+          Мої замовлення
+        </a>
+      </li>
+      <li class="cabinet-navigation__item">
+        <a routerLinkActive="cabinet-navigation__link_state_active"
+           routerLink="wishlist"
+           class="cabinet-navigation__link">
+          <span class="cabinet-navigation__icon">
+            <mat-icon>favorite</mat-icon>
+          </span>
+          Список бажань
+        </a>
+      </li>
+      <li class="cabinet-navigation__item">
+        <a routerLinkActive="cabinet-navigation__link_state_active"
+           routerLink="recently-viewed"
+           class="cabinet-navigation__link">
+          <span class="cabinet-navigation__icon">
+            <mat-icon>remove_red_eye</mat-icon>
+          </span>
+          Переглянуті товари
+        </a>
+      </li>
+      <li class="cabinet-navigation__item">
+        <a routerLinkActive="cabinet-navigation__link_state_active"
+           routerLink="subscribes"
+           class="cabinet-navigation__link">
+          <span class="cabinet-navigation__icon">
+            <mat-icon>notifications</mat-icon>
+          </span>
+          Розсилки
+        </a>
+      </li>
+      <li class="cabinet-navigation__item">
+        <a routerLinkActive="cabinet-navigation__link_state_active"
+           routerLink="wallet"
+           class="cabinet-navigation__link">
+          <span class="cabinet-navigation__icon">
+            <mat-icon>account_balance_wallet</mat-icon>
+          </span>
+          Мій гаманець
+        </a>
+      </li>
+      <li class="cabinet-navigation__item">
+        <a routerLinkActive="cabinet-navigation__link_state_active"
+           routerLink="bonus"
+           class="cabinet-navigation__link">
+          <span class="cabinet-navigation__icon">
+            <mat-icon>card_giftcard</mat-icon>
+          </span>
+          Мій бонусний рахунок
+        </a>
+      </li>
+      <li class="cabinet-navigation__item">
+        <a routerLinkActive="cabinet-navigation__link_state_active"
+           routerLink="reviews"
+           class="cabinet-navigation__link">
+          <span class="cabinet-navigation__icon">
+            <mat-icon>rate_review</mat-icon>
+          </span>
+          Мої відгуки
+        </a>
+      </li>
+      <li class="cabinet-navigation__item">
+        <a routerLinkActive="cabinet-navigation__link_state_active"
+           routerLink="message"
+           class="cabinet-navigation__link">
+          <span class="cabinet-navigation__icon">
+            <mat-icon>mail</mat-icon>
+          </span>
+          Листування з продавцем
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="profile-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

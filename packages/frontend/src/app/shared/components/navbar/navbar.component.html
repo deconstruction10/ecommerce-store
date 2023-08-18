@@ -1,0 +1,64 @@
+<mat-toolbar class="navbar">
+  <div class="navbar-logo">
+    <a href="#">
+      <img class="logo" src="https://mir-s3-cdn-cf.behance.net/projects/404/3481ea154444813.Y3JvcCwyNjAyLDIwMzUsNDQ0LDI4Mw.jpg" alt="Logo">
+    </a>
+  </div>
+  <ul class="navbar-menu">
+    <li class="navbar-menu-item">
+      <a class="sign-in-btn" mat-button routerLink="/home">
+        Home
+        <mat-icon>home</mat-icon>
+      </a>
+    </li>
+    <li class="navbar-menu-item">
+      <a mat-button routerLink="/about">
+        <mat-icon>info</mat-icon>
+        About
+      </a>
+    </li>
+    <li class="navbar-menu-item">
+      <a mat-button routerLink="/services">
+        <mat-icon>build</mat-icon>
+        Services
+      </a>
+    </li>
+    <li class="navbar-menu-item">
+      <a mat-button routerLink="/profile">
+        <mat-icon>person</mat-icon>
+        Profile
+      </a>
+    </li>
+    <li class="navbar-menu-item language">
+      <a class="language-link" routerLink="/language">
+        <mat-icon>language</mat-icon>
+        Language
+        <button mat-icon-button [matMenuTriggerFor]="languageMenu">
+          <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+      </a>
+      <mat-menu #languageMenu="matMenu" xPosition="after">
+        <button mat-menu-item>EN</button>
+        <button mat-menu-item>UA</button>
+      </mat-menu>
+    </li>
+    <li class="navbar-menu-item">
+      <mat-slide-toggle class="dark-theme-toggle" color="primary">
+        <mat-icon>dark_mode</mat-icon>
+        <span class="dark-theme-description">Dark Theme</span>
+      </mat-slide-toggle>
+    </li>
+    <li class="navbar-menu-item">
+      <a (click)="openSignInDialog()" class="sign-in-btn" mat-button routerLink="sign-in">
+        Sign In
+        <mat-icon>arrow_right_alt</mat-icon>
+      </a>
+    </li>
+    <li class="navbar-menu-item">
+      <a (click)="openSignUpDialog()" class="sign-up-btn" mat-button routerLink="sign-up">
+        Sign Up
+        <mat-icon>person_add</mat-icon>
+      </a>
+    </li>
+  </ul>
+</mat-toolbar>

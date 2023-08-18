@@ -1,0 +1,82 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <mat-icon>person</mat-icon>
+      User Information
+    </mat-panel-title>
+    <button mat-icon-button (click)="startEditing(); $event.stopPropagation()">
+      <mat-icon>edit</mat-icon>
+    </button>
+  </mat-expansion-panel-header>
+  <div class="user-info">
+    <div class="info-row" *ngIf="!isEditing">
+      <span class="info-label">Email:</span>
+      <span class="info-value">{{ email }}</span>
+    </div>
+    <mat-form-field class="info-row" *ngIf="isEditing">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="email" [formControl]="emailControl" />
+      <mat-icon matSuffix>email</mat-icon>
+      <mat-error *ngIf="emailControl.hasError('required')">Email is required</mat-error>
+      <mat-error *ngIf="emailControl.hasError('email')">Invalid email format</mat-error>
+    </mat-form-field>
+
+    <div class="info-row" *ngIf="!isEditing">
+      <span class="info-label">Password:</span>
+      <span class="info-value">{{ password }}</span>
+    </div>
+    <mat-form-field class="info-row" *ngIf="isEditing">
+      <mat-label>Password</mat-label>
+      <input matInput [(ngModel)]="password" [formControl]="passwordControl" />
+      <mat-icon matSuffix>lock_open</mat-icon>
+      <mat-error *ngIf="passwordControl.hasError('required')">Password is required</mat-error>
+      <mat-error *ngIf="passwordControl.hasError('minlength')">Password must be at least 6 characters</mat-error>
+    </mat-form-field>
+
+    <div class="info-row" *ngIf="!isEditing">
+      <span class="info-label">Language:</span>
+      <span class="info-value">{{ selectedLanguage }}</span>
+    </div>
+    <mat-form-field class="info-row" *ngIf="isEditing">
+      <mat-label>Language</mat-label>
+      <mat-select [(ngModel)]="selectedLanguage" [formControl]="languageControl">
+        <mat-option value="Ukrainian">Ukrainian</mat-option>
+        <mat-option value="English">English</mat-option>
+      </mat-select>
+      <mat-error *ngIf="languageControl.hasError('required')">Language is required</mat-error>
+    </mat-form-field>
+
+    <div class="info-row" *ngIf="!isEditing">
+      <span class="info-label">Birthdate:</span>
+      <span class="info-value">{{ formatBirthdate() }}</span>
+    </div>
+    <ng-container class="info-row" *ngIf="isEditing">
+      <mat-form-field>
+        <mat-label>Birthdate</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="birthdate" [formControl]="birthdateControl" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-icon matSuffix>event</mat-icon>
+        <mat-error *ngIf="birthdateControl.hasError('required')">Birthdate is required</mat-error>
+      </mat-form-field>
+    </ng-container>
+
+    <div class="info-row" *ngIf="!isEditing">
+      <span class="info-label">Gender:</span>
+      <span class="info-value">{{ selectedGender }}</span>
+    </div>
+    <mat-form-field class="info-row" *ngIf="isEditing">
+      <mat-label>Gender</mat-label>
+      <mat-select [(ngModel)]="gender" [formControl]="genderControl">
+        <mat-option value="Male">Male</mat-option>
+        <mat-option value="Female">Female</mat-option>
+      </mat-select>
+      <mat-error *ngIf="genderControl.hasError('required')">Gender is required</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="actions" *ngIf="isEditing">
+    <button mat-stroked-button color="accent" (click)="cancelEditing()">Cancel</button>
+    <button mat-stroked-button color="primary" (click)="saveChanges()">Save Changes</button>
+  </div>
+</mat-expansion-panel>
+

@@ -1,0 +1,83 @@
+$color: indigo;
+
+@mixin hover-color($hover-color) {
+  &:hover {
+    color: $hover-color;
+  }
+}
+
+.mat-expansion-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lavender;
+  color: $color;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  cursor: pointer;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.info-label {
+  min-width: 120px;
+  margin-right: 4px;
+  color: $color;
+  @include hover-color(#ffcc00)
+}
+
+.info-value {
+  color: indigo;
+  flex-grow: 1;
+  @include hover-color(#ffcc00)
+}
+
+.input-icon {
+  color: $color;
+  margin-right: 8px;
+}
+
+mat-icon {
+  color: $color;
+}
+
+.input-field {
+  color: $color;
+  border-bottom: 2px solid lavender;
+  transition: border-bottom 0.3s ease-in-out;
+}
+
+.input-field:focus {
+  border-bottom: 2px solid $color;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px;
+}
+
+.actions button {
+  margin-left: 8px;
+}
+
+@media (max-width: 768px) {
+  .info-label {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .info-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,154 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lavender;
+  color: #ffffff;
+  padding: 20px;
+  position: relative;
+  top: 0;
+  z-index: 1000;
+  height: 150px;
+  overflow: hidden;
+  animation: isVisibleNavbar 0.9s forwards;
+  &.navbar-visible {
+    height: 150px;
+    opacity: 1;
+  }
+
+  @media (max-width: 767px) {
+    height: 550px;
+  }
+
+  .navbar-logo {
+    margin-bottom: 10px;
+  }
+
+  .navbar-logo {
+    img {
+      width: 100px;
+    }
+  }
+
+  .navbar-menu {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    .navbar-menu-item {
+      margin-left: 20px;
+
+      a {
+        color: indigo;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        transition: color 0.3s ease-in-out;
+
+        &:hover {
+          color: #ffcc00;
+        }
+      }
+    }
+  }
+}
+
+@keyframes isVisibleNavbar {
+  from {top: -1000px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+
+.language {
+  margin-top: -6px;
+}
+
+.language-link,
+.dark-theme-toggle {
+  display: flex;
+  align-items: center;
+  color: indigo;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+  &:hover {
+    color: #ffcc00;
+  }
+}
+
+.dark-theme-description {
+  color: indigo;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+  &:hover {
+    color: #ffcc00;
+    cursor: pointer;
+  }
+}
+
+.language-link mat-icon {
+  margin-right: 5px;
+}
+
+.language-link button.mat-icon-button {
+  margin-left: 5px;
+}
+
+@media (max-width: 767px) {
+  .navbar {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .navbar-logo {
+    margin-bottom: 10px;
+  }
+
+  .navbar-menu {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-menu-item {
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .navbar-logo {
+    margin-bottom: 10px;
+  }
+
+  .navbar-menu {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-menu-item {
+    margin: 10px 0;
+  }
+
+  .navbar-menu-item a {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .navbar {
+    padding: 15px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .navbar {
+    padding: 20px;
+  }
+}

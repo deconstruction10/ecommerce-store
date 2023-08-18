@@ -1,0 +1,104 @@
+<div class="separator"></div>
+<mat-toolbar class="profile-toolbar" color="primary">
+  <button class="products-description" mat-icon-button [matMenuTriggerFor]="productMenu" aria-label="icon-button with a menu">
+    <span>Products</span>
+  </button>
+  <mat-menu #productMenu="matMenu">
+    <div class="product-columns">
+      <div class="product-column">
+        <button mat-menu-item (click)="selectBrand('OnePlus')">
+          <span>OnePlus</span>
+        </button>
+        <button mat-menu-item (click)="selectBrand('Samsung')">
+          <span>Samsung</span>
+        </button>
+        <button mat-menu-item (click)="selectBrand('Nokia')">
+          <span>Nokia</span>
+        </button>
+        <button mat-menu-item (click)="selectBrand('Xiaomi')">
+          <span>Xiaomi</span>
+        </button>
+        <button mat-menu-item (click)="selectBrand('Apple')">
+          <span>Apple</span>
+        </button>
+        <button mat-menu-item (click)="selectBrand('Blackberry')">
+          <span>Blackberry</span>
+        </button>
+      </div>
+      <div class="product-column">
+        <button mat-menu-item (click)="selectBrand('Asus')">
+          <span>Asus</span>
+        </button>
+        <button mat-menu-item (click)="selectBrand('Honor')">
+          <span>Honor</span>
+        </button>
+        <button mat-menu-item (click)="selectBrand('Lenovo')">
+          <span>Lenovo</span>
+        </button>
+        <button mat-menu-item (click)="selectBrand('Meizu')">
+          <span>Meizu</span>
+        </button>
+        <button mat-menu-item (click)="selectBrand('Microsoft')">
+          <span>Microsoft</span>
+        </button>
+        <button mat-menu-item (click)="selectBrand('Philips')">
+          <span>Philips</span>
+        </button>
+      </div>
+      <div class="product-column" (click)="selectBrand('Sony')">
+        <button mat-menu-item>
+          <span>Sony</span>
+        </button>
+        <button mat-menu-item (click)="selectBrand('Tesla')">
+          <span>Tesla</span>
+        </button>
+      </div>
+    </div>
+  </mat-menu>
+
+  <span class="spacer"></span>
+  <form class="autocomplete-search-input">
+    <mat-form-field appearance="outline">
+      <mat-label>Search Brands, Series</mat-label>
+      <mat-icon matPrefix>search</mat-icon>
+      <input type="search"
+             placeholder="Search Brands, Series etc."
+             matInput
+             [formControl]="searchControl"
+             [matAutocomplete]="auto">
+      <mat-icon matSuffix class="close-icon">
+        close
+      </mat-icon>
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let  series of filteredSeries" [value]="series.seriesName">
+<!--          {{ series.seriesName }} - {{ series.brand.brandName }}-->
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+  <div class="shopping-cart-container">
+    <button class="shopping-cart-" mat-icon-button [@bounceAnimation]="iconState" (click)="toggleIconState()">
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+  </div>
+  <button mat-icon-button [matMenuTriggerFor]="dropdownMenu">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #dropdownMenu="matMenu" class="dropdown-menu">
+    <button routerLink="/profile/settings" mat-menu-item>
+      <mat-icon>settings</mat-icon>
+      <span>Settings</span>
+    </button>
+    <button routerLink="/profile/products" mat-menu-item>
+      <mat-icon>shopping_cart</mat-icon>
+      <span>Products</span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+<div class="profile-content">
+  <router-outlet></router-outlet>
+</div>

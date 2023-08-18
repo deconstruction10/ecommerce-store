@@ -1,0 +1,62 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+  font-size: 24px;
+  font-weight: bolder;
+  margin-bottom: 20px;
+  cursor: pointer;
+  color: indigo;
+}
+
+form {
+  width: 100%;
+}
+
+.form-email,
+.form-password {
+  margin-bottom: 20px;
+}
+
+button.mat-button {
+  font-size: 18px;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
+}
+
+button.mat-button:hover {
+  background-color: #e0e0e0;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+input.mat-input-element {
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+
+  fa-icon {
+    color: indigo;
+  }
+
+  .form-submit-button {
+    margin-right: 10px;
+  }
+}

@@ -1,0 +1,39 @@
+<div class="form-container">
+  <h2 class="form-title">Sign Up To Your Account Here</h2>
+  <form class="form" [formGroup]="registerForm" (ngSubmit)="register()">
+    <div class="form-group">
+      <mat-form-field class="form-field">
+        <mat-label class="form-label">Enter your email</mat-label>
+        <input matInput placeholder="pat@example.com" formControlName="email" required class="form-input">
+        <mat-error appErrorHandling></mat-error>
+        <mat-error *ngIf="(email.dirty || email.touched) && email.errors?.['required']" class="form-error">
+          Please enter <strong>a valid</strong> email
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field class="form-field">
+        <mat-label class="form-label">Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required class="form-input">
+        <mat-error *ngIf="(email.dirty || email.touched) && email.errors?.['required']">
+          Password is <strong>required</strong>
+        </mat-error>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" class="form-password-toggle">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+
+    <div class="auth-buttons">
+      <button color="primary" mat-button class="form-submit-button">
+        Sign Up
+        <mat-icon>add</mat-icon>
+      </button>
+      <button color="primary" (click)="openSignInDialog()" mat-button class="form-submit-button">
+        Sign In
+        <mat-icon>person</mat-icon>
+      </button>
+    </div>
+  </form>
+</div>
